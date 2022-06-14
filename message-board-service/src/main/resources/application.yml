@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+sa-token:
+  token-name: sa-token
+  ## token有效期为30天（非记住我模式下token 存在session域，记住我模式下存在cookie域）
+  timeout: 2592000
+  ## 设置token在失效时间内都有效
+  activity-timeout: -1
+  is-concurrent: false
+  is-share: false
+  token-style: simple-uuid
+  is-log: false
+spring:
+  mvc:
+    static-path-pattern: /**
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/message_board_db?useruseUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: root
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: none
+  configuration:
+    ## 开启驼峰转换
+    map-underscore-to-camel-case: true
