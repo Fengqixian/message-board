@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -14,11 +15,12 @@ import java.util.List;
 
 /**
  * 留言板数据视图
- * @author: aria
- * @date-time: 2022/6/5 10:37
+ * @author aria
+ * @date 2022/6/5 10:37
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageBoardTreeNode extends RecordId {
@@ -86,8 +88,8 @@ public class MessageBoardTreeNode extends RecordId {
 
     /**
      * 添加一个节点
-     * @param node
-     * @return
+     * @param node 节点信息
+     * @return 插入节点
      */
     public MessageBoardTreeNode addToTree(MessageBoardTreeNode node) {
         if(node.getParentId() == null) {
@@ -97,7 +99,6 @@ public class MessageBoardTreeNode extends RecordId {
             this.children.add(node);
             return this;
         } else {
-            //TODO 在子集中寻找是否有满足条件的集合
             for(MessageBoardTreeNode downNode: children) {
                 MessageBoardTreeNode temp = downNode.addToTree(node);
                 if( temp!= null) {
@@ -107,26 +108,4 @@ public class MessageBoardTreeNode extends RecordId {
         }
         return null;
     }
-
-    /**
-     * 添加一个节点
-     * @param node
-     * @return
-     */
-    /*public boolean addToTree(MessageBoardTreeNode node) {
-        if(node.getParentId() == null) {
-            throw new MessageException("父节点不能为空：" + node.getId());
-        }
-        if(node.getParentId().equals(this.getId())) {
-            return this.children.add(node);
-        } else {
-            //TODO 在子集中寻找是否有满足条件的集合
-            for(MessageBoardTreeNode downNode: children) {
-                if(downNode.addToTree(node)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }*/
 }

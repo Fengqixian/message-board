@@ -6,21 +6,21 @@ import java.util.List;
 
 /**
  * 留言板业务接口
- * @author: aria
- * @date-time: 2022/6/5 10:36
+ * @author aria
+ * @date 2022/6/5 10:36
  */
 public interface MessageBoardService {
 
     /**
      * 获取留言板内容
-     * @return
+     * @return 留言树
      */
     List<MessageBoardTreeNode> getData();
 
     /**
      * 添加一条留言记录
-     * @param detail
-     * @return
+     * @param detail 留言内容
+     * @return 插入的留言节点
      */
     MessageBoardTreeNode addMessage(MessageBoardDetail detail);
 }

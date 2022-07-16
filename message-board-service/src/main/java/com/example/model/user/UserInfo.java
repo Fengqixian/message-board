@@ -4,14 +4,17 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.example.model.RecordId;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.validation.constraints.NotBlank;
 
 /**
  * 系统用户基本信息
- * @author: aria
- * @date-time: 2022/6/2 22:39
+ * @author aria
+ * @date 2022/6/2 22:39
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @TableName("sys_userinfo")
 public class UserInfo  extends RecordId  {
 

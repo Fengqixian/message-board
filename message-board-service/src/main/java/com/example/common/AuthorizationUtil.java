@@ -4,23 +4,12 @@ import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import com.example.model.user.UserInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.mapping.Environment;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 /**
  * 授权信息工具类
- * @author: aria
- * @date-time: 2022/6/2 23:23
+ * @Author: aria
+ * @Date: 2022/6/2 23:23
  */
 @Slf4j
 public class AuthorizationUtil {
@@ -63,7 +52,7 @@ public class AuthorizationUtil {
 
     /**
      * 通过session获取当前登录账号基本信息
-     * @return
+     * @return 用户信息
      */
     public static UserInfo getCurrentUserInfo() {
         Object info;
@@ -77,7 +66,7 @@ public class AuthorizationUtil {
 
     /**
      * 退出登录
-     * @return
+     * @return 是否登录
      */
     public static Boolean logout() {
         StpUtil.logout();

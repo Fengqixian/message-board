@@ -6,8 +6,8 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * 用户登录请求内容
- * @author: aria
- * @date-time: 2022/6/2 21:54
+ * @author aria
+ * @date 2022/6/2 21:54
  */
 @Data
 public class LoginAccountPassword {

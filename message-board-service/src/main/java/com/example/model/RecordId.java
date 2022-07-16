@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
- * @author: aria
- * @date-time: 2022/6/2 22:30
+ * @author aria
+ * @date 2022/6/2 22:30
  */
 @Data
 public class RecordId {

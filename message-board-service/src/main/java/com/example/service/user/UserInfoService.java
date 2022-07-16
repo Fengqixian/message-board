@@ -6,29 +6,30 @@ import com.example.model.user.UserInfo;
 
 /**
  * 用户基本信息业务接口
- * @author: aria
- * @date-time: 2022/6/2 22:43
+ * @author aria
+ * @date 2022/6/2 22:43
  */
 public interface UserInfoService {
 
     /**
      * 登录系统
-     * @param loginInfo
-     * @return
+     * @param loginInfo 登录用户信息
+     * @return token
      */
     SaTokenInfo login(LoginAccountPassword loginInfo);
 
     /**
-     * 用户注册
-     * @param userInfo
-     * @return
+     * 系统账号注册
+     * @param userInfo 用户信息
+     * @return 成功/失败
      */
     boolean register(UserInfo userInfo);
 
+
     /**
-     * 检测注册账号是否已存在
-     * @param name
-     * @return
+     * 检测名称是否已存在
+     * @param name 注册账号
+     * @return 存在/不存在
      */
     boolean checkAccountExist(String name);
 }

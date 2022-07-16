@@ -8,8 +8,8 @@ import org.springframework.web.filter.CorsFilter;
 
 /**
  * 前后端分离允许跨域配置
- * @author: aria
- * @date-time: 2022/6/3 9:41
+ * @author aria
+ * @date 2022/6/3 9:41
  */
 @Configuration
 public class GlobalCorsConfig {

@@ -7,8 +7,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * sa-token 配置
- * @author: aria
- * @date-time: 2022/6/2 22:04
+ * @author aria
+ * @date 2022/6/2 22:04
  */
 @Configuration
 public class SaTokenWebMvcConfigurer implements WebMvcConfigurer {

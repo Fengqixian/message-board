@@ -4,8 +4,8 @@ import lombok.Getter;
 
 /**
  * 自定义响应返回状态
- * @author: aria
- * @date-time: 2022/6/3 9:14
+ * @author aria
+ * @date 2022/6/3 9:14
  */
 @Getter
 public enum ResponseStatus {
@@ -19,12 +19,12 @@ public enum ResponseStatus {
     /**
      * 响应code
      */
-    private Integer code;
+    private final Integer code;
 
     /**
      * 响应状态
      */
-    private String status;
+    private final String status;
 
     ResponseStatus(Integer code,String status) {
         this.code = code;

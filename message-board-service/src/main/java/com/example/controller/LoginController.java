@@ -12,8 +12,8 @@ import javax.annotation.Resource;
 
 /**
  * 用户登录 API
- * @author: aria
- * @date-time: 2022/6/2 20:26
+ * @author aria
+ * @date 2022/6/2 20:26
  */
 @RestController
 @RequestMapping("/user")
@@ -25,7 +25,7 @@ public class LoginController {
     /**
      * 用户登录接口
      * @param user 账号密码
-     * @return
+     * @return token
      */
     @PostMapping("/login")
     public RestResponse<SaTokenInfo> login(@Validated @RequestBody LoginAccountPassword user) {
@@ -34,8 +34,8 @@ public class LoginController {
 
     /**
      * 账号注册
-     * @param userInfo
-     * @return
+     * @param userInfo 注册用户信息
+     * @return 成功/失败
      */
     @PostMapping("/register")
     public RestResponse<Boolean> register(@Validated @RequestBody UserInfo userInfo) {
@@ -44,8 +44,8 @@ public class LoginController {
 
     /**
      * 检测用户名称是否已存在
-     * @param name
-     * @return
+     * @param name 注册用户名称
+     * @return 成功/失败
      */
     @GetMapping("/exist/{name}")
     public RestResponse<Boolean> exist(@PathVariable("name") String name) {
@@ -54,19 +54,19 @@ public class LoginController {
 
     /**
      * 获取用户身份信息接口
-     * @return
+     * @return 返回用户基本信息
      */
     @GetMapping("/info")
-    public RestResponse info() {
+    public RestResponse<UserInfo> info() {
         return RestResponse.success(AuthorizationUtil.getCurrentUserInfo());
     }
 
     /**
      * 退出登录接口
-     * @return
+     * @return 成功/失败
      */
     @PostMapping("/logout")
-    public RestResponse logout() {
+    public RestResponse<Boolean> logout() {
         return RestResponse.success(AuthorizationUtil.logout());
     }
 }

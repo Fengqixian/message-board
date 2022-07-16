@@ -5,16 +5,18 @@ import com.example.model.RecordId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
 /**
  * 留言板明细内容
- * @author: aria
- * @date-time: 2022/6/5 10:31
+ * @author aria
+ * @date 2022/6/5 10:31
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("message_board_detail")

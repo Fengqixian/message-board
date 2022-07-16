@@ -5,8 +5,8 @@ import lombok.Data;
 
 /**
  * Rest API 统一响应内容
- * @author: aria
- * @date-time: 2022/6/2 20:28
+ * @author aria
+ * @date 2022/6/2 20:28
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
@@ -29,8 +29,8 @@ public class RestResponse<T> {
 
     /**
      * REST API RESPONSE 构造函数
-     * @param status
-     * @param data
+     * @param status 响应状态
+     * @param data 响应内容
      */
     public RestResponse(ResponseStatus status, T data) {
         this.code = status.getCode();
@@ -40,45 +40,30 @@ public class RestResponse<T> {
 
     /**
      * 返回成功的请求
+     * @param <T> 泛型
      * @param data 响应内容
-     * @param <T>
-     * @return
+     * @return 成功响应内容
      */
     public static <T> RestResponse<T> success(T data) {
-        return new RestResponse(ResponseStatus.SUCCESS,data);
-    }
-
-    /**
-     * 返回成功的请求
-     * @return
-     */
-    public static  RestResponse success() {
-        return new RestResponse(ResponseStatus.SUCCESS,null);
+        return new RestResponse<>(ResponseStatus.SUCCESS,data);
     }
 
     /**
      * 失败的请求
      * @param message 错误描述
-     * @return
+     * @return 异常响应内容
      */
-    public static  RestResponse fail(String message) {
-        return new RestResponse(ResponseStatus.ERROR,message);
+    public static  RestResponse<String> fail(String message) {
+        return new RestResponse<>(ResponseStatus.ERROR,message);
     }
 
-    /**
-     * 没有描述的错误响应
-     * @return
-     */
-    public static RestResponse fail() {
-        return new RestResponse(ResponseStatus.ERROR,null);
-    }
 
     /**
      * token失效
-     * @return
+     * @return 异常响应内容
      */
-    public static RestResponse expire() {
-        return new RestResponse(ResponseStatus.TOKEN_EXPIRE,"登录状态已失效，请重新登录~");
+    public static RestResponse<String> expire() {
+        return new RestResponse<>(ResponseStatus.TOKEN_EXPIRE,"登录状态已失效，请重新登录~");
     }
 
 }

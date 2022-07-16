@@ -4,8 +4,6 @@ import lombok.NoArgsConstructor;
 
 /**
  * 业务异常信息
- * @author: aria
- * @date-time: 2022/6/2 23:00
  */
 @NoArgsConstructor
 public class MessageException extends RuntimeException{
